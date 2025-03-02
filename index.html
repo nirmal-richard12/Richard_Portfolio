@@ -3,13 +3,22 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Richard - Bootstrap Restaurant Template</title>
+    <title>Richard - My portfolio</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
+    <!-- Customized Bootstrap Stylesheet -->
+    <!-- Bootstrap CSS -->
+     <!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap JS (Optional, for components like modals, tooltips) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,6 +34,8 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
+
+    
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -33,22 +44,16 @@
 </head>
 
 <body>
-    <div class="container-xxl bg-white p-0">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
+   
         <!-- Spinner End -->
 
 
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <h1 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>Richard</h1>
-                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                <a href="" class="navbar-brand p-0 d-flex align-items-center">
+                    <img src="img/logo.png" alt="New Logo" style="height: 50px;">
+                    <h1 class="text-primary m-0 ms-3">Nirmal Richard</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
@@ -56,749 +61,745 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
                         <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About Me</a>
-                        <a href="service.html" class="nav-item nav-link">Service</a>
-                        <a href="menu.html" class="nav-item nav-link">Menu</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu m-0">
-                                <a href="booking.html" class="dropdown-item">Booking</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="hello.html" class="nav-item nav-link">About</a>
+                        <a href="project.html" class="nav-item nav-link">Project</a>
+                        <a href="Certification.html" class="nav-item nav-link ">Certification</a>
+                        
+                        <a href="contact.html" class="nav-item nav-link ">Contact</a>
                     </div>
-                    <a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
+                    <a href="https://drive.google.com/file/d/1JHxV33FIbYpI_SCm75ADVUYhPZzsBcSS/view?usp=sharing" class="btn btn-primary py-2 px-4" download>RESUME</a>
+
                 </div>
             </nav>
-
+        
             <div class="container-xxl py-5 bg-dark hero-header mb-5">
                 <div class="container my-5 py-5">
                     <div class="row align-items-center g-5">
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="display-3 text-white animated slideInLeft">Enjoy Our<br>Delicious Meal</h1>
-                            <p class="text-white animated slideInLeft mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                            <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book A Table</a>
-                        </div>
-                        <div class="col-lg-6 text-center text-lg-end overflow-hidden">
-                            <img class="img-fluid" src="img/hero.png" alt="">
+                        <div class="col-lg-6 hero-content">
+                            <h1 class="display text-white fw-bold animated slideInLeft">Hi<i class="bi bi-person-raised-hand" style="color: #FEA116;"></i></h1>
+                            <h3 id="typing-text" class="display text-white fw-bold animated slideInLeft">I'M NIRMAL RICHARD K</h3>
+
+                            <p id="changingText" class="text-white animated slideInLeft mb-4 pb-2"></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            const nameText = "I'M NIRMAL RICHARD K";
+            const titles = ["FULL STACK DEVELOPER", "SOFTWARE DEVELOPER", "WEB DEVELOPER"];
+            let nameIndex = 0;
+            let titleIndex = 0;
+            let typingSpeed = 100;
+            let eraseDelay = 2000; // Delay before retyping starts
+        
+            function typeEffect() {
+                const nameElement = document.getElementById("typing-text");
+                if (nameIndex <= nameText.length) {
+                    nameElement.textContent = nameText.substring(0, nameIndex);
+                    nameIndex++;
+                    setTimeout(typeEffect, typingSpeed);
+                } else {
+                    setTimeout(() => {
+                        nameIndex = 0; // Reset typing
+                        typeEffect();  // Restart typing
+                    }, eraseDelay); // Wait before retyping starts
+                }
+            }
+        
+            function changeTitle() {
+                const devText = document.getElementById("changingText");
+                devText.style.opacity = 0; // Fade out smoothly
+                setTimeout(() => {
+                    devText.textContent = titles[titleIndex];
+                    devText.style.opacity = 1; // Fade in smoothly
+                    titleIndex = (titleIndex + 1) % titles.length;
+                }, 500);
+            }
+        
+            setInterval(changeTitle, 3000); // Smooth title change
+            typeEffect(); // Start typing effect
+        </script>
+        
+        
+        
+        
+
         <!-- Navbar & Hero End -->
 
 
-        <!-- Service Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
-                                <h5>Master Chefs</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
-                                <h5>Quality Food</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
-                                <h5>Online Order</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-headset text-primary mb-4"></i>
-                                <h5>24/7 Service</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Service End -->
-
-
-        <!-- About Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6">
-                        <div class="row g-3">
-                            <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="img/about-1.jpg">
-                            </div>
-                            <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="img/about-2.jpg" style="margin-top: 25%;">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="img/about-3.jpg">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="img/about-4.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
-                        <h1 class="mb-4">Welcome to <i class="fa fa-utensils text-primary me-2"></i>Richard</h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos erat ipsum et lorem et sit, sed stet lorem sit.</p>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                        <div class="row g-4 mb-4">
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
-                                    <div class="ps-4">
-                                        <p class="mb-0">Years of</p>
-                                        <h6 class="text-uppercase mb-0">Experience</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>
-                                    <div class="ps-4">
-                                        <p class="mb-0">Popular</p>
-                                        <h6 class="text-uppercase mb-0">Master Chefs</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- About End -->
-
-
-        <!-- Menu Start -->
-        <div class="container-xxl py-5">
+        <!-- about Start -->
+        <div class="container-xxl pt-5 pb-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
-                    <h1 class="mb-5">Most Popular Items</h1>
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">About Me <i class="bi bi-headset-vr" style="color: #FEA116;"></i></h5>
+                    <h1 class="mb-5">My Bio</h1>
                 </div>
-                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
-                        <li class="nav-item">
-                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
-                                <i class="fa fa-coffee fa-2x text-primary"></i>
-                                <div class="ps-3">
-                                    <small class="text-body">Popular</small>
-                                    <h6 class="mt-n1 mb-0">Breakfast</h6>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
-                                <i class="fa fa-hamburger fa-2x text-primary"></i>
-                                <div class="ps-3">
-                                    <small class="text-body">Special</small>
-                                    <h6 class="mt-n1 mb-0">Launch</h6>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
-                                <i class="fa fa-utensils fa-2x text-primary"></i>
-                                <div class="ps-3">
-                                    <small class="text-body">Lovely</small>
-                                    <h6 class="mt-n1 mb-0">Dinner</h6>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="tab-1" class="tab-pane fade show p-0 active">
-                            <div class="row g-4">
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-2.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-3.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-4.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-5.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-6.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-7.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-8.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-5 pb-4 pb-lg-0">
+                        <img class="img-fluid rounded w-100" src="img/profile1.jpg" alt="">
+                    </div>
+                    <div class="col-lg-7">
+                        <h3 class="mb-4"> COMPUTER SCIENCE ENGINEER <i class="bi bi-laptop" style="color: #FEA116;"></i></h3> 
+
+                        <p> Enthusiastic Computer Science student with a strong foundation in Java, Python, and C along with front-end and database experience. Passionate about creating efficient software solutions through logical thinking and modern development practices. Eager to learn, contribute, and grow in a dynamic software development setting, transforming ideas into impactful applications.</p>
+                        <div class="row mb-3">
+                            <div class="col-sm-6 py-2"><h6>Name: <span class="text-secondary">NIRMAL RICHARD K</span></h6></div>
+                            <div class="col-sm-6 py-2"><h6>Birthday: <span class="text-secondary">18 OCTOBER 2003</span></h6></div>
+                            <div class="col-sm-6 py-2"><h6>Degree: <span class="text-secondary">B.E CSE</span></h6></div>
+                            <div class="col-sm-6 py-2"><h6>Phone: <span class="text-secondary">+91 8778722177</span></h6></div>
+                            <div class="col-sm-6 py-2"><h6>Email: <span class="text-secondary">nirmalrichard1810@gmail.com</span></h6></div>
+                            
+                            <div class="col-sm-6 py-2"><h6>Address: <span class="text-secondary">Sriperumbudur,TAMIL NADU</span></h6></div>
+                            
                         </div>
-                        <div id="tab-2" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-2.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-3.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-4.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-5.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-6.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-7.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-8.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="tab-3" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-1.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-2.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-3.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-4.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-5.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-6.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-7.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/menu-8.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Chicken Burger</span>
-                                                <span class="text-primary">$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="https://drive.google.com/file/d/1JHxV33FIbYpI_SCm75ADVUYhPZzsBcSS/view?usp=sharing"class="btn btn-outline-primary mr-4">Hire Me</a>
+                        
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Menu End -->
-
-
-        <!-- Reservation Start -->
-        <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="row g-0">
-                <div class="col-md-6">
-                    <div class="video">
-                        <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
-                            <span></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-md-6 bg-dark d-flex align-items-center">
-                    <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
-                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
-                        <h1 class="text-white mb-4">Book A Table Online</h1>
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                        <label for="datetime">Date & Time</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <select class="form-select" id="select1">
-                                          <option value="1">People 1</option>
-                                          <option value="2">People 2</option>
-                                          <option value="3">People 3</option>
-                                        </select>
-                                        <label for="select1">No Of People</label>
-                                      </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                        <label for="message">Special Request</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content rounded-0">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- 16:9 aspect ratio -->
-                        <div class="ratio ratio-16x9">
-                            <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
-                                allow="autoplay"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Reservation Start -->
-
-
-        <!-- Team Start -->
-        <div class="container-xxl pt-5 pb-3">
-            <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Team Members</h5>
-                    <h1 class="mb-5">Our Master Chefs</h1>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="img/team-1.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="img/team-2.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="img/team-3.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="img/team-4.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Full Name</h5>
-                            <small>Designation</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    
+                    
                 </div>
             </div>
         </div>
         <!-- Team End -->
+        
 
 
-        <!-- Testimonial Start -->
-        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container">
-                <div class="text-center">
-                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Testimonial</h5>
-                    <h1 class="mb-5">Our Clients Say!!!</h1>
+
+
+<!--2222 Team Start -->
+<div class="container-xxl pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar (if needed) -->
+            <div class="col-lg-3">
+                <nav class="nav flex-column">
+                    <a class="nav-link active" href="#education">Education</a>
+                    <a class="nav-link" href="#experience">Experience</a>
+                    <a class="nav-link" href="#skills">Skills</a>
+                    <a class="nav-link" href="certification.html">Certifications</a>
+                </nav>
+            </div>
+            
+
+            <!-- Education Section -->
+            \
+            <div class="col-lg-6">
+                <div id="education" class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">About Me <i class="bi bi-headset-vr" style="color: #FEA116;"></i></h5>
+                    <h1 class="mb-5">My Education</h1>
                 </div>
-                <div class="owl-carousel testimonial-carousel">
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
+
+                <div id="education" class="container-xxl pt-5 pb-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <h1 class="mb-4 text-primary">Education</h1>
+                
+                    <div class="timeline">
+                        <div class="timeline-item mb-4 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-mortarboard-fill text-primary display-6 me-3"></i>
+                                <div>
+                                    <h5 class="fw-bold">Bachelor of Enginner in Computer Science</h5>
+                                    <p class="mb-1 text-muted">IFET College of Engineering | <small>2021 - 2025</small></p>
+                                    <p>Current CGPA: 8.2</p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <hr>
+                
+                        <div class="timeline-item mb-4 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-book-fill text-primary display-6 me-3"></i>
+                                <div>
+                                    <h5 class="fw-bold">Higher Secondary Certificate</h5>
+                                    <p class="mb-1 text-muted">Don Bosco Matric Hr. Sec. School | <small>2020 - 2021</small></p>
+                                    <p>Percentage: 80.5%</p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <hr>
+                
+                        <div class="timeline-item wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-award-fill text-primary display-6 me-3"></i>
+                                <div>
+                                    <h5 class="fw-bold">Secondary School Leaving Certificate</h5>
+                                    <p class="mb-1 text-muted">Don Bosco Matric Hr. Sec. School | <small>2018 - 2019</small></p>
+                                    <p>Percentage: 73%</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
+                </div>
+                
+            </div> 
+        </div>
+    </div>
+</div>
+
+    <!--  222222 Team End -->
+
+
+
+
+
+
+
+<!--333 ep Team Start -->
+<div class="container-xxl pt-5 pb-5">
+    <div id="experience" class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">About Me <i class="bi bi-headset-vr" style="color: #FEA116;"></i></h5>
+            <h1 class="mb-5">My Experience</h1>
+        </div>
+        <div class="container-xxl pt-5 pb-5">
+            <div class="container">
+                <div id="experience" class="container-xxl pt-5 pb-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <h1 class="mb-4 text-primary">Experience</h1>
+                
+                    <div class="timeline">
+                        <div class="timeline-item mb-4 wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-briefcase-fill text-primary display-6 me-3"></i>
+                                <div>
+                                    <h5 class="fw-bold">Full Stack Intern</h5>
+                                    <p class="mb-1 text-muted">NaNLogical Consultancy Services Pvt Ltd | <small>June 2024 - July 2024</small></p>
+                                    <p>Completed a 1-month web development internship, gaining hands-on experience in HTML, CSS, and JavaScript. Successfully developed a functional weather-app, enhancing front-end development skills.</p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <hr>
+                
+                        <div class="timeline-item mb-4 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-tools text-primary display-6 me-3"></i>
+                                <div>
+                                    <h5 class="fw-bold">Web Development intern </h5>
+                                    <p class="mb-1 text-muted">Cloudlogic Technologies Pvt Ltd | <small>Jan 2023</small></p>
+                                    <p>Gained hands-on experience in web development technologies. Worked on web projects, enhancing skills in responsive design and best practices.</p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <hr>
+                
+                        <div class="timeline-item wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-code-slash text-primary display-6 me-3"></i>
+                                <div>
+                                    <h5 class="fw-bold">Implant Training</h5>
+                                    <p class="mb-1 text-muted">Askan technologies | <small>2024 - Present</small></p>
+                                    <p>Conducting online and offline programming sessions for juniors, helping them master programming concepts, with a focus on Python fundamentals and problem-solving techniques.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-3.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
+                </div>
+                
+            </div>
+        </div>
+        
+
+<!--  3333 expe Team End -->
+
+<!--55 pro Team Start -->
+
+<!--55 pro Team Start -->
+
+
+<!--444 skill Team Start -->
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s" id="skill">
+    <div class="container">
+        <div id="skills" class="position-relative d-flex align-items-center justify-content-center">
+            <h1 class="display-1 text-uppercase text-white wow fadeInUp" data-wow-delay="0.2s" style="-webkit-text-stroke: 1px #010911;">Skills</h1>
+            <h1 class="position-absolute text-uppercase text-primary wow fadeInUp" data-wow-delay="0.3s">My Skills</h1>
+        </div>
+        <div class="container-xxl pt-5 pb-5">
+            <div class="container">
+                <div id="skills" class="container-xxl pt-5 pb-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <h1 class="mb-4 text-primary">Skills</h1>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="mb-2 fw-bold">Python <span class="float-end"></span></p>
+                            <div class="progress mb-3 wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="progress-bar bg-primary" style="width: 90%;"></div>
+                            </div>
+                
+                            <p class="mb-2 fw-bold">C <span class="float-end"></span></p>
+                            <div class="progress mb-3 wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="progress-bar bg-primary" style="width: 60%;"></div>
+                            </div>
+                
+                            <p class="mb-2 fw-bold">CSS3 <span class="float-end"></span></p>
+                            <div class="progress mb-3 wow fadeInUp" data-wow-delay="0.4s">
+                                <div class="progress-bar bg-primary" style="width: 90%;"></div>
+                            </div>
+                
+                            <p class="mb-2 fw-bold">MangoDB <span class="float-end"></span></p>
+                            <div class="progress mb-3 wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="progress-bar bg-primary" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                
+                        <div class="col-md-6">
+                            <p class="mb-2 fw-bold">Java <span class="float-end"></span></p>
+                            <div class="progress mb-3 wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="progress-bar bg-primary" style="width: 80%;"></div>
+                            </div>
+                
+                            <p class="mb-2 fw-bold">HTML5 <span class="float-end"></span></p>
+                            <div class="progress mb-3 wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="progress-bar bg-primary" style="width: 95%;"></div>
+                            </div>
+                
+                            <p class="mb-2 fw-bold">MySQL <span class="float-end"></span></p>
+                            <div class="progress mb-3 wow fadeInUp" data-wow-delay="0.4s">
+                                <div class="progress-bar bg-primary" style="width: 65%;"></div>
+                            </div>
+                
+                            <p class="mb-2 fw-bold">Git & GitHub <span class="float-end"></span></p>
+                            <div class="progress mb-3 wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="progress-bar bg-primary" style="width: 80%;"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-4.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Client Name</h5>
-                                <small>Profession</small>
+                </div>
+                
+            </div>
+        </div>
+        
+<!-- Skill End -->
+
+
+
+
+        <!-- about End -->
+
+
+        <!-- certification Start -->
+         
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Certification</h5>
+                    <h1 class="mb-5">My Achievements</h1>
+                </div>
+        <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+            <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                <li class="nav-item">
+                    <a class="d-flex align-items-center mx-3 pb-3 filter-btn" data-filter="all">
+                        <i class="fa fa-folder-open fa-2x text-primary"></i>
+                        <div class="ps-3 text-start">
+                            <h6 class="fw-bold mb-0">All</h6>
+                            <small class="text-body">Certificates</small>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center mx-3 pb-3 filter-btn active" data-filter="professional">
+                        <i class="fa fa-briefcase fa-2x text-primary"></i>
+                        <div class="ps-3 text-start">
+                            <h6 class="fw-bold mb-0">Professional</h6>
+                            <small class="text-body">Certificates</small>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center mx-3 pb-3 filter-btn" data-filter="college">
+                        <i class="fa fa-university fa-2x text-primary"></i>
+                        <div class="ps-3 text-start">
+                            <h6 class="fw-bold mb-0">College</h6>
+                            <small class="text-body">Certificates</small>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        
+                                    <!-- Certificate List -->
+<!-- Certificate List -->
+<div class="tab-content">
+    <div id="certificate-list" class="row g-4">
+        
+   
+
+        <div class="col-lg-6 certificate-item professional all">
+            <div class="d-flex align-items-center">
+                <a href="https://drive.google.com/file/d/13llXoeRnrqUVMIqVsbhq8wSBG5R4bKOK/view?usp=sharing" target="_blank">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/CERTI/PYTHON.jpeg" alt="Python Certification" style="width: 120px; height: 80px;">
+                </a>
+                <div class="w-100 d-flex flex-column text-start ps-4">
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <a href="https://drive.google.com/file/d/13llXoeRnrqUVMIqVsbhq8wSBG5R4bKOK/view?usp=sharing" target="_blank">
+                            <span>Python Certification</span>
+                        </a>
+                    </h5>
+                    <small class="fst-italic">Issued by CISCO</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 certificate-item professional all">
+            <div class="d-flex align-items-center">
+                <a href="https://drive.google.com/file/d/1SFIXhvIz_5E70xxIMhNK-Vv_HPBDRrba/view?usp=sharing" target="_blank">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/CERTI/data science.webp" alt="Python Certification" style="width: 120px; height: 80px;">
+                </a>
+                <div class="w-100 d-flex flex-column text-start ps-4">
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <a href="https://drive.google.com/file/d/1SFIXhvIz_5E70xxIMhNK-Vv_HPBDRrba/view?usp=sharing" target="_blank">
+                            <span>Data Science Certificate</span>
+                        </a>
+                    </h5>
+                    <small class="fst-italic">Issued by CISCO</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 certificate-item professional all">
+            <div class="d-flex align-items-center">
+                <a href="https://drive.google.com/file/d/1xQfsM2QZLjJulKSk52w7dJ-fMqnJ8mCO/view?usp=sharing" target="_blank">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/CERTI/FULL STAX=CK.jpg" alt="Python Certification" style="width: 120px; height: 80px;">
+                </a>
+                <div class="w-100 d-flex flex-column text-start ps-4">
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <a href="https://drive.google.com/file/d/1xQfsM2QZLjJulKSk52w7dJ-fMqnJ8mCO/view?usp=sharing target="_blank">
+                            <span> Full Stack Internship</span>
+                        </a>
+                    </h5>
+                    <small class="fst-italic">Issued by APJ Technologies</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 certificate-item professional all">
+            <div class="d-flex align-items-center">
+                <a href="https://drive.google.com/file/d/1B2nfrNDNGoEYn_y6KSA9RpnivN8xl-Se/view?usp=sharing" target="_blank">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/CERTI/WIPRO.webp" alt="Python Certification" style="width: 120px; height: 80px;">
+                </a>
+                <div class="w-100 d-flex flex-column text-start ps-4">
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <a href="https://drive.google.com/file/d/1B2nfrNDNGoEYn_y6KSA9RpnivN8xl-Se/view?usp=sharing" target="_blank">
+                            <span>JAVA Full Stack Certification</span>
+                        </a>
+                    </h5>
+                    <small class="fst-italic">Issued by WIPRO</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 certificate-item professional all">
+            <div class="d-flex align-items-center">
+                <a href="https://drive.google.com/file/d/14IqrCT_Igo9gL4N09ktlTiluolNzFJSH/view?usp=sharingV" target="_blank">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/CERTI/NetworkSchematic.jpg" alt="Python Certification" style="width: 120px; height: 80px;">
+                </a>
+                <div class="w-100 d-flex flex-column text-start ps-4">
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <a href="https://drive.google.com/file/d/14IqrCT_Igo9gL4N09ktlTiluolNzFJSH/view?usp=sharing" target="_blank">
+                            <span>Introduction to Network Certification</span>
+                        </a>
+                    </h5>
+                    <small class="fst-italic">Issued by CISCO</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 certificate-item professional all">
+            <div class="d-flex align-items-center">
+                <a href="https://drive.google.com/file/d/1mG_Ymh23WonoURNEC3bSlQrxZjUntMqH/view?usp=sharing" target="_blank">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/CERTI/networksecu.jpg" alt="Python Certification" style="width: 120px; height: 80px;">
+                </a>
+                <div class="w-100 d-flex flex-column text-start ps-4">
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <a href="https://drive.google.com/file/d/1mG_Ymh23WonoURNEC3bSlQrxZjUntMqH/view?usp=sharing" target="_blank">
+                            <span>Enterprise Networking, Security and Automation Certification</span>
+                        </a>
+                    </h5>
+                    <small class="fst-italic">Issued by CISCO</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 certificate-item professional all">
+            <div class="d-flex align-items-center">
+                <a href="https://drive.google.com/file/d/1GK54zkD7OdJU0YzKnMTXWPuX9CNDzOgd/view?usp=sharing" target="_blank">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/CERTI/cybersecurity_NicoElNino-AlamyStockPhoto.jpg" alt="Python Certification" style="width: 120px; height: 80px;">
+                </a>
+                <div class="w-100 d-flex flex-column text-start ps-4">
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <a href="https://drive.google.com/file/d/1GK54zkD7OdJU0YzKnMTXWPuX9CNDzOgd/view?usp=sharing" target="_blank">
+                            <span>Introduction to Cybersecurity Certification</span>
+                        </a>
+                    </h5>
+                    <small class="fst-italic">Issued by CISCO</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 certificate-item professional all">
+            <div class="d-flex align-items-center">
+                <a href="https://drive.google.com/file/d/1kanV97OqdP4dS4jchLMzqRd6EUbiXQek/view?usp=sharing" target="_blank">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/CERTI/cyberesssss.webp" alt="Python Certification" style="width: 120px; height: 80px;">
+                </a>
+                <div class="w-100 d-flex flex-column text-start ps-4">
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <a href="https://drive.google.com/file/d/1kanV97OqdP4dS4jchLMzqRd6EUbiXQek/view?usp=sharing" target="_blank">
+                            <span>Cybersecurity Essentials Certification</span>
+                        </a>
+                    </h5>
+                    <small class="fst-italic">Issued by CISCO</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 certificate-item professional all">
+            <div class="d-flex align-items-center">
+                <a href="https://drive.google.com/file/d/1vD-KQj6R1GlRDIdNCW4NQ7EO2cHv4yQa/view?usp=sharing" target="_blank">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/CERTI/kalam sir.jpeg" alt="Python Certification" style="width: 120px; height: 80px;">
+                </a>
+                <div class="w-100 d-flex flex-column text-start ps-4">
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <a href="https://drive.google.com/file/d/1vD-KQj6R1GlRDIdNCW4NQ7EO2cHv4yQa/view?usp=sharing" target="_blank">
+                            <span>Landmine Detection</span>
+                        </a>
+                    </h5>
+                    <small class="fst-italic">DR. KALAM YOUNG ACHIEVER AWARD  </small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add remaining professional certificates -->
+        
+        <!-- College Certificates (6 Certificates) -->
+        
+
+        <div class="col-lg-6 certificate-item college all">
+            <div class="d-flex align-items-center">
+                <a href="https://drive.google.com/file/d/1N0-WMoF1sjWpmtzNNo7sg-Tk3917izWu/view?usp=sharing" target="_blank">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/CERTI/PHYSISSS.jpeg" alt="Project Expo Winner" style="width: 120px; height: 80px;">
+                </a>
+                <div class="w-100 d-flex flex-column text-start ps-4">
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <a href="https://drive.google.com/file/d/1N0-WMoF1sjWpmtzNNo7sg-Tk3917izWu/view?usp=sharing" target="_blank">
+                            <span>PHISHING DETECTION WEBSITE</span>
+                        </a>
+                    </h5>
+                    <small class="fst-italic">2nd Place in TECHSHOWCASE-2K24</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 certificate-item college all">
+            <div class="d-flex align-items-center">
+                <a href="https://drive.google.com/file/d/1Rghmqdn_DsEOJIdHnHIIcUiUexkjI7jv/view?usp=sharing" target="_blank">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/CERTI/techbery.jpeg" alt="Internship Certificate" style="width: 120px; height: 80px;">
+                </a>
+                <div class="w-100 d-flex flex-column text-start ps-4">
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <a href="https://drive.google.com/file/d/1Rghmqdn_DsEOJIdHnHIIcUiUexkjI7jv/view?usp=sharing" target="_blank">
+                            <span>Techberry Certificate</span>
+                        </a>
+                    </h5>
+                    <small class="fst-italic">Astra Falcon</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 certificate-item college all">
+            <div class="d-flex align-items-center">
+                <a href="https://drive.google.com/file/d/1d5N78l6q5WoC7nm5hhHgefNq2fNXMCys/view?usp=sharing" target="_blank">
+                    <img class="flex-shrink-0 img-fluid rounded" src="img/CERTI/ai.jpeg" alt="Internship Certificate" style="width: 120px; height: 80px;">
+                </a>
+                <div class="w-100 d-flex flex-column text-start ps-4">
+                    <h5 class="d-flex justify-content-between border-bottom pb-2">
+                        <a href="https://drive.google.com/file/d/1d5N78l6q5WoC7nm5hhHgefNq2fNXMCys/view?usp=sharing" target="_blank">
+                            <span>Enginner's Day Certificate</span>
+                        </a>
+                    </h5>
+                    <small class="fst-italic">AI Speech Recognition</small>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add remaining college certificates -->
+
+    </div> <!-- End of Certificate List -->
+</div>
+
+
+        
+        <!-- certification End -->
+
+
+        <!-- project Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">My Project <i class="bi bi-lightbulb-fill" style="color: #FEA116;"></i></h5>
+                    <h1 class="mb-5">Explore on Project</h1>
+                </div>
+                <div class="row g-4">
+                    
+                    <!-- Project 1 -->
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <a href="https://github.com/nirmal-richard12" target="_blank" class="project-link">
+                            <div class="service-item rounded pt-3 text-center">
+                                <div class="p-4">
+                                    <div style="font-size: 3rem;">🌾</div>
+                                    <h5>Drought Stress Detection</h5>
+                                    <p>Deep learning-based Rice crops stress prediction.</p>
+                                </div>
                             </div>
+                        </a>
+                    </div>
+        
+                    <!-- Project 2 -->
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <a href="https://github.com/nirmal-richard12/C2TC_CORE_JAVA" target="_blank" class="project-link">
+                            <div class="service-item rounded pt-3 text-center">
+                                <div class="p-4">
+                                    <div style="font-size: 3rem;">🗣️</div>
+                                    <h5>AI Voice Generator</h5>
+                                    <p>AI-powered system to voice speech.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+        
+                    <!-- Project 3 -->
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <a href="https://github.com/nirmal-richard12/Richard_Portfolio" target="_blank" class="project-link">
+                            <div class="service-item rounded pt-3 text-center">
+                                <div class="p-4">
+                                    <div style="font-size: 3rem;">💧</div>
+                                    <h5>Atmospheric Water Generator</h5>
+                                    <p>IoT-enabled system for generating clean water from humidity.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+        
+                    <!-- Project 4 -->
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
+                        <a href="https://github.com/nirmal-richard12" target="_blank" class="project-link">
+                            <div class="service-item rounded pt-3 text-center">
+                                <div class="p-4">
+                                    <div style="font-size: 3rem;">👁️</div>
+                                    <h5>Ocular Gesture Disclosure</h5>
+                                    <p>Machine learning-based ocular tracking for user authentication.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+   <!-- project End -->
+
+
+        <!-- contact Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Contact Me</h5>
+                    <h1 class="mb-5">Contact For Any Query</h1>
+                </div>
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="row gy-4">
+                            
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                        <iframe class="position-relative rounded w-100 h-100"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62215.59300367134!2d79.88701783794716!3d12.941456619880912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f2c66c981c67%3A0x2e697ce6d307cfbe!2sSriperumbudur%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1739535928323!5m2!1sen!2sin"
+                            frameborder="0" style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false"
+                            tabindex="0"></iframe>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="wow fadeInUp" data-wow-delay="0.2s">
+                            <form action="https://formspree.io/f/xpwqyzdg" method="POST">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="name" placeholder="Your Name" name="name" required>
+                                            <label for="name">Your Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" placeholder="Your Email" name="email" required>
+                                            <label for="email">Your Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="subject" placeholder="Subject" name="subject" required>
+                                            <label for="subject">Subject</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px" name="message" required></textarea>
+                                            <label for="message">Message</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Testimonial End -->
+        <!-- contact End -->
         
 
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
-                        <a class="btn btn-link" href="">About Us</a>
-                        <a class="btn btn-link" href="">Contact Us</a>
-                        <a class="btn btn-link" href="">Reservation</a>
-                        <a class="btn btn-link" href="">Privacy Policy</a>
-                        <a class="btn btn-link" href="">Terms & Condition</a>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                        <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <div class="row" style="margin-left: 10cm;">
+                        <div class="col-lg-3 col-md-6">
+                            <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Main Menu</h4>
+                            <a class="btn btn-link" href="about.html">About Me</a>
+                            <a class="btn btn-link" href="contact.html">Contact Me</a>
+                            <a class="btn btn-link" href="">Certification</a>
+                            <a class="btn btn-link" href="">Project</a>
+                            <a class="btn btn-link" href="https://drive.google.com/file/d/1JHxV33FIbYpI_SCm75ADVUYhPZzsBcSS/view?usp=sharing">Resume</a>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
+                            <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Sriperumbudur</p>
+                            <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91877872217</p>
+                            <p class="mb-2"><i class="fa fa-envelope me-3"></i>nirmalrichard1810@gmail.com</p>
+                            <div class="d-flex pt-2">
+                                <a class="btn btn-outline-light btn-social" href="https://github.com/nirmal-richard12"><i class="fab fa-github"></i></a>
+                                <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/in/nirmal-richard12"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
-                        <h5 class="text-light fw-normal">Monday - Saturday</h5>
-                        <p>09AM - 09PM</p>
-                        <h5 class="text-light fw-normal">Sunday</h5>
-                        <p>10AM - 08PM</p>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4>
-                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                        <div class="position-relative mx-auto" style="max-width: 400px;">
-                            <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                        </div>
-                    </div>
+                    
+                    
                 </div>
             </div>
             <div class="container">
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
+                             <a class="border-bottom" href="#"></a> 
 							
 							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                            Designed By <a class="border-bottom" href="">Nirmal Richard <i class="bi bi-feather" style="color: #FEA116;"></i></a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href="">Home</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
+                                <a href="index.html">Home</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -812,6 +813,100 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
+     
+
+    <!-- JavaScript for Filtering -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const certificateItems = document.querySelectorAll(".certificate-item");
+    
+            filterButtons.forEach((btn) => {
+                btn.addEventListener("click", function () {
+                    const filter = this.getAttribute("data-filter");
+    
+                    // Remove active class from all buttons
+                    filterButtons.forEach((b) => b.classList.remove("active"));
+                    this.classList.add("active");
+    
+                    // Show/Hide certificates based on filter
+                    certificateItems.forEach((item) => {
+                        if (filter === "all" || item.classList.contains(filter)) {
+                            item.style.display = "block";
+                        } else {
+                            item.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    <script>
+        // Set default tab to 'All Certificates' on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".certificate-item").forEach(el => el.style.display = "block");
+            document.querySelector(".filter-btn.active").classList.remove("active");
+            document.querySelector("[data-filter='all']").classList.add("active");
+        });
+    
+        // Certificate Filter Logic
+        document.querySelectorAll(".filter-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                let filter = this.getAttribute("data-filter");
+    
+                // Remove active class from all filter buttons
+                document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+                this.classList.add("active");
+    
+                // Show or hide certificates based on filter
+                document.querySelectorAll(".certificate-item").forEach(item => {
+                    if (filter === "all" || item.classList.contains(filter)) {
+                        item.style.display = "block";
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        const texts = ["FULL STACK DEVELOPER", "SOFTWARE DEVELOPER", "WEB DEVELOPER"];
+        let index = 0;
+    
+        function changeText() {
+            document.getElementById("changingText").textContent = texts[index];
+            index = (index + 1) % texts.length; // Loop through texts
+        }
+    
+        setInterval(changeText, 2000); // Change every 2 seconds
+        changeText(); // Initial call
+    </script>
+    <script>
+        const titles = ["FULL STACK DEVELOPER", "SOFTWARE DEVELOPER", "WEB DEVELOPER"];
+        let titleIndex = 0;
+        function changeTitle() {
+            const devText = document.getElementById("developer-text");
+            devText.style.opacity = 0; // Fade out
+            setTimeout(() => {
+                devText.textContent = titles[titleIndex];
+                devText.style.opacity = 1; // Fade in
+                titleIndex = (titleIndex + 1) % titles.length;
+            }, 500);
+        }
+        setInterval(changeTitle, 3000); // Change every 3 seconds
+    </script>
+    <script>
+        const text = "I'M NIRMAL RICHARD";
+        let index = 0;
+        function typeEffect() {
+            document.getElementById("typing-text").textContent = text.substring(0, index);
+            index = (index + 1) % (text.length + 1);
+            setTimeout(typeEffect, 150); // Adjust speed here
+        }
+        typeEffect();
+    </script>
+    
+    
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
